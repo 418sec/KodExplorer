@@ -186,8 +186,8 @@ function path_writeable($path){
  */
 function file_info($path){
 	$info = array(
-		'name'			=> iconv_app(get_path_this($path)),
-		'path'			=> iconv_app($path),
+		'name'			=> iconv_app(htmlentities(get_path_this($path))),
+		'path'			=> iconv_app(htmlentities($path)),
 		'ext'			=> get_path_ext($path),
 		'type' 			=> 'file',
 		'mode'			=> get_mode($path),
@@ -205,8 +205,8 @@ function file_info($path){
  */
 function folder_info($path){
 	$info = array(
-		'name'			=> iconv_app(get_path_this($path)),
-		'path'			=> iconv_app(rtrim($path,'/').'/'),
+		'name'			=> iconv_app(htmlentities(get_path_this($path))),
+		'path'			=> iconv_app(htmlentities(rtrim($path,'/').'/')),
 		'type' 			=> 'folder',
 		'mode'			=> get_mode($path),
 		'atime'			=> @fileatime($path), //访问时间
